@@ -3,13 +3,9 @@ import omit from "lodash/omit"
 import { useCart, useProducts } from "medusa-react"
 import { useMemo } from "react"
 
-/**
- * A hook that returns an array of enriched line items.
- * If you pass an array of line items, it will return those line items with enriched data.
- * Otherwise it will return the line items from the current cart.
- */
 const useEnrichedLineItems = (lineItems?: LineItem[], cartId?: string) => {
   const { cart } = useCart()
+  console.log({ cart })
 
   const queryParams = useMemo(() => {
     if (lineItems) {
@@ -30,7 +26,9 @@ const useEnrichedLineItems = (lineItems?: LineItem[], cartId?: string) => {
     keepPreviousData: true,
   })
 
-  // We enrich the line items with the product and variant information
+  console.log("Query Parameters:", queryParams)
+  console.log("Fetched Products:", products)
+
   const items = useMemo(() => {
     const currItems = lineItems || cart?.items
 
@@ -45,14 +43,14 @@ const useEnrichedLineItems = (lineItems?: LineItem[], cartId?: string) => {
 
       if (!product) {
         enrichedItems.push(item)
-        return
+        continue
       }
 
       const variant = product.variants.find((v) => v.id === item.variant_id)
 
       if (!variant) {
         enrichedItems.push(item)
-        return
+        continue
       }
 
       enrichedItems.push({
@@ -67,7 +65,9 @@ const useEnrichedLineItems = (lineItems?: LineItem[], cartId?: string) => {
     }
 
     return enrichedItems
-  }, [cart?.items, lineItems, products])
+  }, [lineItems, cart?.items, cartId, products])
+
+  console.log("Enriched Line Items:", items)
 
   return items
 }
