@@ -83,6 +83,8 @@ const fetchFeaturedProducts = async (
         title: p.title!,
         handle: p.handle!,
         thumbnail: p.thumbnail!,
+        // variants: p.variants,
+        raw: p,
         price: cheapestVariant
           ? {
               calculated_price: formatAmount({
