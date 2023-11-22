@@ -114,9 +114,9 @@ const FooterNav = () => {
             <div className="flex flex-col gap-y-2">
               <span className="txt-small-plus txt-ui-fg-base">Milamiti</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                {menu.map((item) => {
+                {menu.map((item, i) => {
                   return (
-                    <li>
+                    <li key={i}>
                       <a
                         href={"/page/" + item.path}
                         target="_blank"

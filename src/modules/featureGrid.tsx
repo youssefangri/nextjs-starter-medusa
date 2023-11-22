@@ -38,8 +38,8 @@ const FeatureGrid = () => {
 
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {/* <div className=" flex flex-wrap gap-2"> */}
-          {data.map((d) => {
-            return <ServiceCard title={d.heading} />
+          {data.map((d, i) => {
+            return <ServiceCard key={i} title={d.heading} />
           })}
         </div>
       </div>

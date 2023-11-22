@@ -143,21 +143,17 @@ const DoubleImage = () => {
     <div className="-gap-4 relative flex w-full flex-col items-center justify-center">
       <div className="relative flex h-full w-full items-center justify-center py-80 md:py-96">
         <div className="thumbnail absolute inset-0 -z-0 h-full w-full overflow-hidden bg-fixed ">
-          <img
-            decoding="async"
+          <Image
             className="rellax set-height w-full object-cover "
-            data-rellax-speed="-1"
-            data-rellax-percentage="0.5"
             src="https://mana.minority.studio/wp-content/uploads/2023/08/m3.jpg"
+            alt={""}
           />
 
           <div className="absolute inset-8 overflow-hidden border-2 border-neutral-100 bg-neutral-50 bg-fixed sm:inset-16">
-            <img
-              decoding="async"
+            <Image
               className="rellax set-height w-full object-cover"
-              data-rellax-speed="1"
-              data-rellax-percentage="0"
               src="https://mana.minority.studio/wp-content/uploads/2023/08/m3.jpg"
+              alt={""}
             />
           </div>
         </div>
