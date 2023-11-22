@@ -9,7 +9,8 @@ import Trash from "@modules/common/icons/trash"
 import Thumbnail from "@modules/products/components/thumbnail"
 import { formatAmount, useCart } from "medusa-react"
 import Link from "next/link"
-import { Fragment } from "react"
+import { Fragment, useEffect } from "react"
+import { Toaster, toast } from "sonner"
 
 const CartDropdown = () => {
   const { cart, totalItems } = useCart()
@@ -17,8 +18,15 @@ const CartDropdown = () => {
   const { deleteItem } = useStore()
   const { state, open, close } = useCartDropdown()
 
+  useEffect(() => {
+    console.log("useeffect")
+    toast.success("Added to Cart")
+  }, [totalItems])
+
   return (
     <div className="h-full z-50" onMouseEnter={open} onMouseLeave={close}>
+      <Toaster position="bottom-center" richColors />
+
       <Popover className="relative h-full">
         <Popover.Button className="h-full">
           <Link

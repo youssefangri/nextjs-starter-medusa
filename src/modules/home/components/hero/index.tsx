@@ -5,16 +5,10 @@ const Hero = () => {
     <div className="h-[75vh] w-full relative bg-ui-bg-subtle">
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32">
         <Heading
-          level="h1"
-          className="text-3xl leading-10 text-ui-fg-base font-normal"
-        >
-          Ecommerce Starter Template
-        </Heading>
-        <Heading
           level="h2"
           className="text-3xl leading-10 text-ui-fg-subtle font-normal"
         >
-          Powered by Medusa and Next.js
+          Developed by Minority Studio
         </Heading>
       </div>
     </div>

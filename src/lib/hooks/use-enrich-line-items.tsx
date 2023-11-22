@@ -5,7 +5,6 @@ import { useMemo } from "react"
 
 const useEnrichedLineItems = (lineItems?: LineItem[], cartId?: string) => {
   const { cart } = useCart()
-  console.log({ cart })
 
   const queryParams = useMemo(() => {
     if (lineItems) {
@@ -25,9 +24,6 @@ const useEnrichedLineItems = (lineItems?: LineItem[], cartId?: string) => {
     enabled: !!lineItems || !!cart?.items?.length,
     keepPreviousData: true,
   })
-
-  console.log("Query Parameters:", queryParams)
-  console.log("Fetched Products:", products)
 
   const items = useMemo(() => {
     const currItems = lineItems || cart?.items
@@ -66,8 +62,6 @@ const useEnrichedLineItems = (lineItems?: LineItem[], cartId?: string) => {
 
     return enrichedItems
   }, [lineItems, cart?.items, cartId, products])
-
-  console.log("Enriched Line Items:", items)
 
   return items
 }

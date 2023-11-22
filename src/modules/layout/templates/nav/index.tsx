@@ -6,6 +6,7 @@ import Hamburger from "@modules/common/components/hamburger"
 import CartDropdown from "@modules/layout/components/cart-dropdown"
 import DropdownMenu from "@modules/layout/components/dropdown-menu"
 import SideMenu from "@modules/layout/components/side-menu"
+import Logo from "@modules/logo"
 import MobileMenu from "@modules/mobile-menu/templates"
 import DesktopSearchModal from "@modules/search/templates/desktop-search-modal"
 import Link from "next/link"
@@ -36,7 +37,8 @@ const Nav = () => {
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              <Logo />
+              {/* Milamiti */}
             </Link>
           </div>
 

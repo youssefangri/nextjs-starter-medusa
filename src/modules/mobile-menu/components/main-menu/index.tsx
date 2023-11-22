@@ -7,6 +7,7 @@ import { useCollections, useMeCustomer } from "medusa-react"
 import Link from "next/link"
 import ReactCountryFlag from "react-country-flag"
 import { Heading } from "@medusajs/ui"
+import Logo from "@modules/logo"
 
 const MainMenu = () => {
   const { collections } = useCollections()
@@ -37,7 +38,8 @@ const MainMenu = () => {
         </div>
 
         <Heading className="txt-compact-xlarge-plus text-ui-fg-subtle uppercase">
-          Medusa Store
+          <Logo />
+          {/* Milamiti */}
         </Heading>
 
         <div className="flex-1 basis-0 flex justify-end">

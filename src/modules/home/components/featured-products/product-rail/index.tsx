@@ -8,7 +8,6 @@ import InteractiveLink from "@modules/common/components/interactive-link"
 
 const ProductRail = ({ collection }: { collection: ProductCollection }) => {
   const { data } = useFeaturedProductsQuery(collection.id)
-  console.log({ data })
   return (
     <div className="small:py-12">
       <div className="content-container py-12">

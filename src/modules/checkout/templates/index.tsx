@@ -6,6 +6,7 @@ import CheckoutLoader from "../components/checkout-loader"
 import CheckoutForm from "./checkout-form"
 import CheckoutSummary from "./checkout-summary"
 import SubmitSpinner from "../components/submit-spinner"
+import Logo from "@modules/logo"
 
 const CheckoutTemplate = () => {
   return (
@@ -30,7 +31,8 @@ const CheckoutTemplate = () => {
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              <Logo />
+              {/* Milamiti */}
             </Link>
             <div className="flex-1 basis-0" />
           </nav>

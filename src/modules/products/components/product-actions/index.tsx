@@ -9,6 +9,7 @@ import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/option-select"
 import clsx from "clsx"
 import React, { useMemo } from "react"
+import { Toaster, toast } from "sonner"
 
 type ProductActionsProps = {
   product: PricedProduct
