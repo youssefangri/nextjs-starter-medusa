@@ -118,7 +118,7 @@ const FooterNav = () => {
                   return (
                     <li>
                       <a
-                        href={item.path}
+                        href={"/page/" + item.path}
                         target="_blank"
                         rel="noreferrer"
                         className="hover:text-ui-fg-base"
