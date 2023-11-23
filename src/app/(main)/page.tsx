@@ -68,7 +68,7 @@ export default async function Home() {
         {/* <CollectionView handle={'evidenza'} /> */}
         <FeatureGrid />
 
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-4">
           <Card
             heading="-10% per il tuo primo acquisto!"
             body="Siamo entusiasti di darti il benvenuto, inizia il tuo viaggio con Milamiti"
