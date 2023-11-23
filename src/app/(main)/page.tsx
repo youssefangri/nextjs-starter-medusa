@@ -159,9 +159,7 @@ const DoubleImage = () => {
         </div>
         <div className="md:py-44"></div>
         <div className=" absolute inset-0 mx-6 flex flex-col items-center justify-center text-center text-4xl sm:mx-12 sm:text-6xl md:mx-auto md:max-w-2xl">
-          <h1 className="serif mb-1 leading-tight text-white">
-            L'All You Can Love Elevato all'Ennesima Potenza
-          </h1>
+          <h1 className="serif mb-1 leading-tight text-white">Heading text</h1>
         </div>
       </div>
     </div>

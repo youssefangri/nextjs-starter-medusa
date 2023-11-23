@@ -11,6 +11,7 @@ import MobileActions from "@modules/products/components/mobile-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import ProductActions from "../components/product-actions"
+import { useAccount } from "@lib/context/account-context"
 
 type ProductTemplateProps = {
   product: PricedProduct
@@ -22,6 +23,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
   const infoRef = useRef<HTMLDivElement>(null)
 
   const inView = useIntersection(infoRef, "0px")
+
+  const { customer, retrievingCustomer } = useAccount()
 
   useEffect(() => {
     const onboarding = window.sessionStorage.getItem("onboarding")
@@ -39,17 +42,19 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
         <div className="block w-full relative">
           <ImageGallery images={product?.images || []} />
         </div>
-        <div
-          className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12"
-          ref={infoRef}
-        >
-          <ProductActions product={product} />
-        </div>
+        {customer && (
+          <div
+            className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12"
+            ref={infoRef}
+          >
+            <ProductActions product={product} />
+          </div>
+        )}
       </div>
       <div className="content-container my-16 px-6 small:px-8 small:my-32">
         <RelatedProducts product={product} />
       </div>
-      <MobileActions product={product} show={!inView} />
+      {customer && <MobileActions product={product} show={!inView} />}
     </ProductProvider>
   )
 }

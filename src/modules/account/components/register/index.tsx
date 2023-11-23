@@ -78,8 +78,20 @@ const Register = () => {
           />
           <Input
             label="Phone"
-            {...register("phone")}
+            {...register("phone", { required: "Phone is required" })}
             autoComplete="tel"
+            errors={errors}
+          />
+          <Input
+            label="Partita Iva"
+            {...register("vat", { required: "Partita Iva is required" })}
+            autoComplete="tel"
+            errors={errors}
+          />
+          <Input
+            label="Azienda"
+            {...register("company", { required: "Azienda is required" })}
+            autoComplete="organization"
             errors={errors}
           />
           <Input

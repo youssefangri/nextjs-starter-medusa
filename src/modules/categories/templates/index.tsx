@@ -16,6 +16,8 @@ import { useInView } from "react-intersection-observer"
 import Link from "next/link"
 import UnderlineLink from "@modules/common/components/interactive-link"
 import { notFound } from "next/navigation"
+import { useAccount } from "@lib/context/account-context"
+import { toast } from "sonner"
 
 type CategoryTemplateProps = {
   categories: ProductCategoryWithChildren[]
@@ -27,7 +29,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
 
   const category = categories[categories.length - 1]
   const parents = categories.slice(0, categories.length - 1)
-
+  const { customer, retrievingCustomer } = useAccount()
   if (!category) notFound()
 
   const {
@@ -62,7 +64,11 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
   })
 
   useEffect(() => {
-    if (inView && hasNextPage) {
+    if (!customer) {
+      toast.info(
+        "Registrati per accedere a tutti i prodotti e informazioni di Milamiti"
+      )
+    } else if (inView && hasNextPage) {
       fetchNextPage()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
