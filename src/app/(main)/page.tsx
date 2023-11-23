@@ -23,7 +23,7 @@ export default async function Home() {
 
       <div className="relative h-[590px] w-full">
         {/* <div className="small:text-left small:justify-end small:items-start absolute inset-x-0 top-auto bottom-0 z-10 flex flex-col items-center justify-center text-center text-white"> */}
-        <div className="small:text-left small:justify-end small:items-start small:p-32 absolute inset-0 z-10 flex flex-col items-center justify-center pb-32 text-center text-white">
+        <div className="small:p-32 absolute inset-0 z-10 flex flex-col items-center justify-center pb-32 text-center text-white">
           <SectionTitle
             subtitle={"Milamiti"}
             heading={"Scopri la Nostra Nuova Collezione"}
