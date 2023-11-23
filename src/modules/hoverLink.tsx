@@ -1,16 +1,19 @@
-import clsx from 'clsx';
-import Link from 'next/link';
-export async function HoverLink({
+import clsx from "clsx"
+import Link from "next/link"
+export function HoverLink({
   href,
   text,
-  className
+  className,
 }: {
-  href: string;
-  text: string;
-  className: string;
+  href: string
+  text: string
+  className: string
 }) {
   return (
-    <Link href={href} className={clsx('group relative overflow-hidden ', className)}>
+    <Link
+      href={href}
+      className={clsx("group relative overflow-hidden ", className)}
+    >
       <span className="invisible">{text}</span>
       <span
         className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 
@@ -29,5 +32,5 @@ export async function HoverLink({
         {text}
       </span>
     </Link>
-  );
+  )
 }
