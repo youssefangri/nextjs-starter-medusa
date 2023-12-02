@@ -84,13 +84,13 @@ const Register = () => {
           />
           <Input
             label="Partita Iva"
-            {...register("vat", { required: "Partita Iva is required" })}
+            {...register("vat_id", { required: "Partita Iva is required" })}
             autoComplete="tel"
             errors={errors}
           />
           <Input
             label="Azienda"
-            {...register("company", { required: "Azienda is required" })}
+            {...register("company_name", { required: "Azienda is required" })}
             autoComplete="organization"
             errors={errors}
           />

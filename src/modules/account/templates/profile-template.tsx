@@ -6,6 +6,8 @@ import ProfileName from "@modules/account/components/profile-name"
 import ProfilePassword from "@modules/account/components/profile-password"
 import ProfileBillingAddress from "../components/profile-billing-address"
 import ProfilePhone from "../components/profile-phone"
+import ProfileVat from "../components/profile-vat"
+import ProfileCompany from "../components/profile-company"
 
 const ProfileTemplate = () => {
   const { customer, retrievingCustomer, refetchCustomer } = useAccount()
@@ -30,6 +32,10 @@ const ProfileTemplate = () => {
         <ProfileEmail customer={customer} />
         <Divider />
         <ProfilePhone customer={customer} />
+        <Divider />
+        <ProfileVat customer={customer} />
+        <Divider />
+        <ProfileCompany customer={customer} />
         <Divider />
         <ProfilePassword customer={customer} />
         <Divider />

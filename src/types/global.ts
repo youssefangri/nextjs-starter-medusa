@@ -2,6 +2,7 @@ import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { NextPage } from "next"
 import { AppProps } from "next/app"
 import { ReactElement, ReactNode } from "react"
+import { Customer as MedusaCustomer } from "@medusajs/medusa"
 
 export type CollectionData = {
   id: string
@@ -68,4 +69,9 @@ export type InfiniteProductPage = {
     products: PricedProduct[]
     count: number
   }
+}
+
+export class Customer extends MedusaCustomer {
+  vat_id!: string
+  company_name!: string
 }
