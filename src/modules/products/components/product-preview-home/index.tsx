@@ -6,7 +6,7 @@ import { Text } from "@medusajs/ui"
 import ProductActions from "../product-actions"
 import { useAccount } from "@lib/context/account-context"
 
-const ProductPreview = ({
+const ProductPreviewHome = ({
   title,
   handle,
   thumbnail,
@@ -49,9 +49,9 @@ const ProductPreview = ({
           </div>
         </div>
       </Link>
-      {/* {customer?.metadata?.is_verified === "true" && <ProductActions product={...raw} />} */}
+      {customer?.metadata?.is_verified === "true" && <ProductActions product={...raw} />}
     </div>
   )
 }
 
-export default ProductPreview
+export default ProductPreviewHome

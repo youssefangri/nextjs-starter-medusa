@@ -5,6 +5,7 @@ import { ProductCollection } from "@medusajs/medusa"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Text } from "@medusajs/ui"
 import InteractiveLink from "@modules/common/components/interactive-link"
+import ProductPreviewHome from "@modules/products/components/product-preview-home"
 
 const ProductRail = ({ collection }: { collection: ProductCollection }) => {
   const { data } = useFeaturedProductsQuery(collection.id)
@@ -21,7 +22,7 @@ const ProductRail = ({ collection }: { collection: ProductCollection }) => {
           {data &&
             data.map((product) => (
               <li key={product.id}>
-                <ProductPreview isFeatured {...product} />
+                <ProductPreviewHome isFeatured {...product} />
               </li>
             ))}
         </ul>
