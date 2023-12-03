@@ -8,16 +8,27 @@ import { Button } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/option-select"
 import clsx from "clsx"
-import React, { useMemo } from "react"
+import React, { useEffect, useMemo } from "react"
 import { Toaster, toast } from "sonner"
 
 type ProductActionsProps = {
-  product: PricedProduct
+  product: PricedProduct,
+  onVariantChange?: (variant: any) => void;
 }
 
-const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
+const ProductActionsInner: React.FC<ProductActionsProps> = ({ product, onVariantChange }) => {
   const { updateOptions, addToCart, options, inStock, variant } =
     useProductActions()
+
+  // useEffect that call onVariantChange when variant changes
+  useEffect(() => {
+    // test if onVariantChange is a function
+    // to make sur we change thumbnail only when variant changes on product-preview-home
+    if (typeof onVariantChange !== "function") {
+      return;
+    }
+    onVariantChange(variant);
+  }, [variant])
 
   const price = useProductPrice({ id: product.id!, variantId: variant?.id })
 
@@ -92,9 +103,9 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
   )
 }
 
-const ProductActions: React.FC<ProductActionsProps> = ({ product }) => (
+const ProductActions: React.FC<ProductActionsProps> = ({ product, onVariantChange }) => (
   <ProductProvider product={product}>
-    <ProductActionsInner product={product} />
+    <ProductActionsInner product={product} onVariantChange={onVariantChange} />
   </ProductProvider>
 )
 

@@ -1,3 +1,4 @@
+import React, {useState} from "react"
 import clsx from "clsx"
 import Link from "next/link"
 import { ProductPreviewType } from "types/global"
@@ -15,12 +16,31 @@ const ProductPreviewHome = ({
   raw,
 }: any) => {
   const { customer, retrievingCustomer } = useAccount()
+
+  const [selectedThumbnail, setSelectedThumbnail] = useState(thumbnail)
+
+  const handleVariantChange = (variant: any) => {
+    const variantThumbnail = variant?.thumbnail
+    const variantImage = variant?.images[0]?.url;
+    if (variantThumbnail) {
+      
+      setSelectedThumbnail(variantThumbnail)
+      
+    } else if (variantImage) {
+
+      setSelectedThumbnail(variantImage)
+
+    } else {
+      // if no thumbnail or image, set default thumbnail
+      setSelectedThumbnail(thumbnail)
+    }
+  };
   return (
     <div>
       <Link href={`/products/${handle}`} className="group">
         <div>
           <Thumbnail
-            thumbnail={thumbnail}
+            thumbnail={selectedThumbnail}
             size="full"
             isFeatured={isFeatured}
           />
@@ -49,7 +69,11 @@ const ProductPreviewHome = ({
           </div>
         </div>
       </Link>
-      {customer?.metadata?.is_verified === "true" && <ProductActions product={...raw} />}
+      {customer?.metadata?.is_verified === "true" && 
+        <ProductActions 
+            product={...raw} 
+            onVariantChange={handleVariantChange}
+        />}
     </div>
   )
 }
