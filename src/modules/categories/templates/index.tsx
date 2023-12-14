@@ -64,7 +64,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
   })
 
   useEffect(() => {
-    if (!customer || customer?.metadata?.is_verified !== "true") {
+    if (!customer || customer?.is_verified !== "true") {
       toast.info(
         "Registrati per accedere a tutti i prodotti e informazioni di Milamiti"
       )
