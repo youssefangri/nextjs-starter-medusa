@@ -56,7 +56,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
         <div className="block w-full relative">
           <ImageGallery images={product?.images || []} />
         </div>
-        {customer?.is_verified === "true" && (
+        {customer?.metadata?.is_verified === "true" && (
           <div
             className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12"
             ref={infoRef}
@@ -80,7 +80,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
 
           <div className="basis-full lg:basis-2/6">
             <ProductInfo product={product} />
-            {customer?.is_verified === "true" && (
+            {customer?.metadata?.is_verified === "true" && (
             <ProductActions product={product} onVariantChange={handleVariantChange}/>
         )}
           </div>
@@ -89,7 +89,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
       <div className="content-container my-16 px-6 small:px-8 small:my-32">
         <RelatedProducts product={product} />
       </div>
-      {customer?.is_verified === "true" && <MobileActions product={product} show={!inView} />}
+      {customer?.metadata?.is_verified === "true" && <MobileActions product={product} show={!inView} />}
     </ProductProvider>
   )
 }

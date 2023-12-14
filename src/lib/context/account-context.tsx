@@ -1,15 +1,11 @@
 "use client"
 
 import { medusaClient } from "@lib/config"
-import { Customer as MedusaCustomer } from "@medusajs/medusa"
+import { Customer } from "@medusajs/medusa"
 import { useMutation } from "@tanstack/react-query"
 import { useMeCustomer } from "medusa-react"
 import { useRouter } from "next/navigation"
 import React, { createContext, useCallback, useContext, useState } from "react"
-
-class Customer extends MedusaCustomer {
-  is_verified?: string;
-}
 
 export enum LOGIN_VIEW {
   SIGN_IN = "sign-in",

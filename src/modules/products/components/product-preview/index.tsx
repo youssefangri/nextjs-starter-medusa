@@ -27,7 +27,7 @@ const ProductPreview = ({
           <div className="flex txt-compact-medium mt-2 justify-between">
             <Text className="text-ui-fg-subtle">{title}</Text>
             <div className="flex items-center gap-x-2">
-              {price && customer?.is_verified === "true" ? (
+              {price && customer?.metadata?.is_verified === "true" ? (
                 <>
                   {price.price_type === "sale" && (
                     <Text className="line-through text-ui-fg-muted">
